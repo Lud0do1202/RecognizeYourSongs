@@ -1,0 +1,85 @@
+<!-- Loader -->
+<app-loader *ngIf="loader === true"></app-loader>
+
+<!-- CONTAINER -->
+<div class="container settings-page">
+  <!-- ------------------------------- -->
+  <!-- HEADER -->
+  <div class="header">
+    <!-- Title -->
+    <app-title title="Settings"></app-title>
+  </div>
+
+  <!-- ------------------------------- -->
+  <!-- CONTENT -->
+  <div class="content" *ngIf="loader === false">
+    <!-- Select tracks -->
+    <div class="tracks">
+      <p-divider align="center">Tracks</p-divider>
+      <div class="list-setting-btn">
+        <p-button
+          [ngClass]="'setting-btn all-tracks-btn ' + allTracksActive()"
+          styleClass="green-btn"
+          (onClick)="allTracksClicked()"
+        >
+          All tracks
+        </p-button>
+        <p-button
+          *ngFor="let range of rangeTracksUI; let i = index"
+          [ngClass]="'setting-btn ' + rangeTracksActive(i)"
+          styleClass="green-btn"
+          (onClick)="rangeTracksClicked(i)"
+        >
+          {{ range }}
+        </p-button>
+      </div>
+    </div>
+
+    <!-- Start track -->
+    <div class="start-track">
+      <p-divider align="center">Start track</p-divider>
+      <div class="list-setting-btn">
+        <p-button
+          [ngClass]="'setting-btn ' + startTrackActive('beginning')"
+          styleClass="green-btn"
+          (onClick)="startTrack = 'beginning'"
+          >Beginning</p-button
+        >
+        <p-button
+          [ngClass]="'setting-btn ' + startTrackActive('random')"
+          styleClass="green-btn"
+          (onClick)="startTrack = 'random'"
+          >Random</p-button
+        >
+      </div>
+    </div>
+
+    <!-- Device -->
+    <div class="device">
+      <p-divider align="center">Device</p-divider>
+
+      <div class="no-device" *ngIf="devices.length === 0">
+        No device found<br /><span class="help">Open Spotify on one of your devices</span>
+      </div>
+
+      <div class="list-setting-btn">
+        <p-button
+          *ngFor="let d of devices"
+          [ngClass]="'setting-btn device-btn ' + deviceActive(d.id)"
+          styleClass="green-btn"
+          (onClick)="device = d"
+        >
+          <div class="device-type">{{ d.type }}</div>
+          <div class="device-name">{{ d.name }}</div>
+        </p-button>
+      </div>
+    </div>
+
+    <!-- ------------------------------- -->
+    <!-- FOTTER -->
+    <p-divider align="center">Play</p-divider>
+    <div class="footer" *ngIf="loader === false">
+      <p-button label="Play" styleClass="green-btn" (onClick)="play()"></p-button>
+    </div>
+  </div>
+</div>

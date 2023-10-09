@@ -1,0 +1,27 @@
+.container {
+  /* CONTENT */
+  .content {
+    // Search bar
+    .search-bar {
+      height: 15%;
+      width: 80%;
+      display: flex;
+      align-items: center;
+      margin: auto;
+    }
+
+    // Playlist
+    .playlists {
+      height: 85%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      overflow-y: scroll;
+
+      .playlist-btn {
+        width: 80%;
+      }
+    }
+  }
+}

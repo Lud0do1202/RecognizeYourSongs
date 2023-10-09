@@ -1,0 +1,38 @@
+<!-- Loader -->
+<app-loader *ngIf="loader === true"></app-loader>
+
+<!-- CONTAINER -->
+<div class="container">
+  <!-- ------------------------------- -->
+  <!-- HEADER -->
+  <div class="header">
+    <!-- Title -->
+    <app-title title="Playlist"></app-title>
+  </div>
+
+  <!-- ------------------------------- -->
+  <!-- CONTENT -->
+  <div class="content" *ngIf="loader === false">
+    <!-- Search bar -->
+    <app-search-bar class="search-bar" (onChange)="updatePlaylists($event)"></app-search-bar>
+
+    <!-- Playlists -->
+    <div class="playlists">
+      <p-button
+        *ngFor="let playlist of playlists"
+        [ngClass]="{ 'list-btn': true, 'playlist-btn': true, active: playlist.id === getPlaylistSelected().id }"
+        (onClick)="setPlaylistSelected(playlist)"
+      >
+        <div class="list-btn-img"><img [src]="playlist.img" /></div>
+        <div class="list-btn-text">{{ playlist.name }}</div>
+        <div class="list-btn-info">{{ playlist.nbTracks }} tracks</div>
+      </p-button>
+    </div>
+  </div>
+
+  <!-- ------------------------------- -->
+  <!-- FOTTER -->
+  <div class="footer" *ngIf="loader === false">
+    <p-button label="Confirm" styleClass="green-btn" routerLink="/settings"></p-button>
+  </div>
+</div>

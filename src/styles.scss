@@ -1,1 +1,203 @@
-/* You can add global styles to this file, and also import other style files */
+/* *********************************************** */
+/* IMPORTS */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+/* *********************************************** */
+/* ROOT */
+:root {
+  --green: #1db954;
+  --black: #191414;
+  --black-light: #282323;
+  --white: #ffffff;
+}
+
+/* *********************************************** */
+/* BODY */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-family);
+  height: 100vh;
+}
+
+/* *********************************************** */
+/* CONTAINER */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* *********************************************** */
+/* HEADER */
+.header {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* *********************************************** */
+/* CONTENT */
+.content {
+  height: 72.5%;
+  display: flex;
+  flex-direction: column;
+
+  // ERROR page
+  &.error-content {
+    height: 82.5%;
+    justify-content: center;
+  }
+}
+
+/* *********************************************** */
+/* FOOTER */
+.footer {
+  height: 17.5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  // Button
+  p-button {
+    width: 60%;
+
+    .p-button {
+      font-size: 1.75em;
+      width: 100%;
+    }
+
+    .p-button-icon {
+      font-size: 1em;
+    }
+  }
+}
+
+/* *********************************************** */
+/* BUTTONS */
+
+// Focus input
+input:focus {
+  box-shadow: 0 0 0 0.2rem var(--green) !important;
+}
+
+// Buttons
+p-button {
+  &.active {
+    .p-button {
+      background-color: var(--green) !important;
+      border: 1px solid var(--green) !important;
+      color: var(--black) !important;
+    }
+  }
+
+  .p-button {
+    width: 100%;
+    font-size: 1em;
+
+    // Focus button
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--green) !important;
+    }
+  }
+}
+
+// Green button
+.green-btn {
+  color: var(--green) !important;
+  background-color: var(--black) !important;
+  border: 1px solid var(--green) !important;
+  justify-content: center;
+}
+
+// List button
+.list-btn {
+  width: 80%;
+  margin: 0.2em 0;
+
+  // p-button
+  .p-button {
+    padding: 0;
+    background-color: var(--black-light) !important;
+    border: 1px solid var(--black-light) !important;
+    position: relative;
+  }
+
+  // Image
+  .list-btn-img {
+    width: 60px;
+    height: 60px;
+
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  // Text
+  .list-btn-text {
+    font-size: 1.4em;
+    margin: 0 1em;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  // Additional info
+  .list-btn-info {
+    position: absolute;
+    font-size: 0.75em;
+    bottom: 0.35em;
+    right: 1em;
+  }
+}
+
+/* *********************************************** */
+/* DIVIDER */
+.p-divider {
+  margin: 0 0 1rem 0 !important;
+
+  // Line
+  &::before {
+    border-top: 1px solid var(--white) !important;
+  }
+
+  // Content
+  .p-divider-content {
+    background-color: var(--black);
+    font-size: 3em;
+  }
+}
+
+/* *********************************************** */
+/* POPUP */
+.p-confirm-popup {
+  background-color: var(--black-light);
+  border: 1px solid var(--white);
+  color: var(--white);
+
+  .p-confirm-popup-footer {
+    .p-confirm-popup-reject {
+      color: var(--green);
+    }
+    .p-confirm-popup-accept {
+      color: var(--black);
+      background-color: var(--green);
+      border: 1px solid var(--green);
+    }
+  }
+}
+
+/* *********************************************** */
+/* ERROR */
+.error-message {
+  text-align: center;
+  font-size: 2em;
+  color: var(--green);
+  margin: 1em;
+}

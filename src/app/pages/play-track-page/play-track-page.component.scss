@@ -1,0 +1,52 @@
+::ng-deep {
+  /* NUM TRACK */
+  .num-track {
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+    font-size: 1.1em;
+    color: var(--white);
+  }
+
+  /* FORM */
+  .form {
+    height: 65%;
+    overflow-y: scroll;
+
+    /* INPUT */
+    .input-form {
+      display: block;
+      width: 80%;
+      margin: 0.8em auto;
+      color: var(--white);
+      background-color: var(--black);
+      border: 1px solid var(--white);
+      font-size: 1.5em;
+
+      &.correct {
+        border-color: var(--green);
+        color: var(--green);
+      }
+      &.incorrect {
+        border-color: var(--red-500);
+        color: var(--red-500);
+      }
+    }
+  }
+
+  /* CONFIRM */
+  .container-confirm-btn {
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    p-button {
+      width: 60%;
+    }
+    .confirm-btn {
+      font-size: 1.5em;
+      width: 100%;
+    }
+  }
+}

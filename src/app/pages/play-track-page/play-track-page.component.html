@@ -1,0 +1,35 @@
+<!-- Title -->
+<app-title [title]="playlist.name"></app-title>
+
+<!-- Countdown -->
+<app-timer [time]="10000" (end)="endTimer()" #timer></app-timer>
+
+<!-- Num track -->
+<div class="num-track">{{ numTrack }}</div>
+
+<!-- Form -->
+<div class="form">
+  <!-- Title -->
+  <p-divider align="center">Title</p-divider>
+  <input
+    type="text"
+    [ngClass]="{ 'input-form': true, correct: feedbackTitle === true, incorrect: feedbackTitle === false }"
+    pInputText
+    [(ngModel)]="title"
+  />
+
+  <!-- Artists -->
+  <p-divider align="center">Artists</p-divider>
+  <input
+    *ngFor="let artist of track?.artists; let i = index"
+    type="text"
+    [ngClass]="{ 'input-form': true, correct: feedbackArtists[i] === true, incorrect: feedbackArtists[i] === false }"
+    pInputText
+    [(ngModel)]="artists[i]"
+  />
+</div>
+
+<!-- Confirm -->
+<div class="container-confirm-btn">
+  <p-button [label]="'Confirm'" [styleClass]="'green-btn confirm-btn'" (onClick)="confirm()"></p-button>
+</div>

@@ -1,0 +1,105 @@
+.content {
+  /* RESULT */
+  .result {
+    height: 30%;
+    display: flex;
+
+    // Count answers
+    .count-answers {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      font-size: 2.5em;
+      padding-left: 10%;
+
+      i {
+        font-size: 0.8em;
+        margin-right: 5%;
+      }
+
+      .count-correct-answers {
+        color: var(--green);
+      }
+      .count-incorrect-answers {
+        color: var(--red-500);
+      }
+    }
+
+    // Circle
+    .circle {
+      width: 70%;
+      position: relative;
+
+      .percentage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.75em;
+      }
+    }
+  }
+
+  /* SUMMARY */
+  ::ng-deep .summary {
+    height: 70%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // One answer
+    .answer {
+      margin: 0.5em 0;
+
+      .p-button {
+        display: flex;
+        flex-direction: column;
+
+        // Name of the artists
+        .artist-name {
+          font-size: 1.2em;
+          border-bottom: 1px solid var(--black);
+          padding: 0.25em 0;
+          width: 100%;
+        }
+
+        // Title and img
+        .title-track {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          width: 100%;
+        }
+      }
+
+      // Correct answer
+      .correct-answer {
+        color: var(--green);
+
+        &.artist-name {
+          color: var(--black);
+          background-color: var(--green);
+        }
+      }
+
+      // Incorrect answer
+      .incorrect-answer {
+        color: var(--red-500);
+
+        &.artist-name {
+          color: var(--white);
+          background-color: var(--red-500);
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  p-button {
+    width: 35%;
+  }
+}

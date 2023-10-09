@@ -1,0 +1,18 @@
+/* SEARCH BAR */
+.search-bar {
+  width: 100%;
+
+  // Icon
+  i {
+    color: var(--white);
+  }
+
+  // Input
+  input {
+    width: 100%;
+    font-size: 1.3em;
+    color: var(--white);
+    background-color: var(--black);
+    border: 1px solid var(--white);
+  }
+}

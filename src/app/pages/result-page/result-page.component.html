@@ -1,0 +1,70 @@
+<!-- Loader -->
+<app-loader *ngIf="loader === true"></app-loader>
+
+<!-- CONTAINER -->
+<div class="container">
+  <!-- ------------------------------- -->
+  <!-- HEADER -->
+  <div class="header">
+    <!-- Title -->
+    <app-title [title]="playlist.name"></app-title>
+  </div>
+
+  <!-- ------------------------------- -->
+  <!-- CONTENT -->
+  <div class="content" *ngIf="loader === false">
+    <!-- Result -->
+    <div class="result">
+      <!-- Count answers -->
+      <div class="count-answers">
+        <div class="count-correct-answers"><i class="pi pi-check-circle"></i>{{ getCorrectAnswerCount() }}</div>
+        <div class="count-incorrect-answers"><i class="pi pi-times-circle"></i>{{ getIncorrectAnswerCount() }}</div>
+      </div>
+
+      <!-- Circle -->
+      <div class="circle">
+        <!-- SVG -->
+        <svg height="100%" width="100%">
+          <circle cx="50%" cy="50%" [attr.r]="rCircle" stroke="var(--red-500)" stroke-width="15" fill="transparent" />
+          <circle
+            cx="50%"
+            cy="50%"
+            [attr.r]="rCircle"
+            stroke="var(--green)"
+            stroke-width="15"
+            fill="transparent"
+            [attr.stroke-dasharray]="strokeDasharray"
+            style="transform: rotate(-90deg); transform-origin: center"
+          />
+        </svg>
+
+        <!-- Pourcentage -->
+        <div class="percentage">{{ getCorrectAnswerRatio() | percent : "1.2-2" }}</div>
+      </div>
+    </div>
+    <p-divider></p-divider>
+
+    <!-- Summary -->
+    <div class="summary">
+      <p-button *ngFor="let track of tracks; let i = index" class="list-btn answer" (onClick)="playTrack(track)">
+        <!-- Artists name -->
+        <div *ngFor="let artist of answers[i].artists" [ngClass]="'artist-name ' + correctAnswerClass(artist.correct)">
+          {{ artist.name }}
+        </div>
+
+        <!-- Title + img -->
+        <div class="title-track">
+          <div class="list-btn-img"><img [src]="track.img" /></div>
+          <div [ngClass]="'list-btn-text ' + correctAnswerClass(answers[i].title)">{{ track.title }}</div>
+        </div>
+      </p-button>
+    </div>
+  </div>
+
+  <!-- ------------------------------- -->
+  <!-- FOTTER -->
+  <div class="footer" *ngIf="loader === false">
+    <p-button icon="pi pi-replay" styleClass="green-btn" (onClick)="replay()"></p-button>
+    <p-button icon="pi pi-home" styleClass="green-btn" (onClick)="home()"></p-button>
+  </div>
+</div>

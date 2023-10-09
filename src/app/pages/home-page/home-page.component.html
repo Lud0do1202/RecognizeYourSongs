@@ -1,0 +1,29 @@
+<!-- CONTAINER -->
+<div class="container">
+  <!-- ------------------------------- -->
+  <!-- HEADER -->
+  <div class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="/assets/logo.png" alt="RecogniseYourSongs" />
+    </div>
+  </div>
+
+  <!-- ------------------------------- -->
+  <!-- CONTENT -->
+  <div class="content">
+    <p-button class="new-game-btn" label="New Game" styleClass="green-btn" routerLink="/playlists"></p-button>
+  </div>
+
+  <!-- ------------------------------- -->
+  <!-- FOOTER -->
+  <div class="footer">
+    <p-button class="list-btn user-btn" (onClick)="userClick($event)">
+      <div class="list-btn-img"><img [src]="user?.img" /></div>
+      <div class="list-btn-text">{{ user?.name }}</div>
+    </p-button>
+  </div>
+</div>
+
+<!-- POPUP -->
+<p-confirmPopup></p-confirmPopup>
