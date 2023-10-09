@@ -60,7 +60,7 @@ export class AuthService {
       let state = this.generateRandomString(16);
 
       // Scopes
-      let scopes = ['playlist-read-private', 'user-modify-playback-state', 'user-read-playback-state'];
+      let scopes = ['user-read-email', 'user-read-private', 'playlist-read-private', 'user-modify-playback-state', 'user-read-playback-state'];
       let scope = scopes.join(' ');
 
       // Set the code verifier
